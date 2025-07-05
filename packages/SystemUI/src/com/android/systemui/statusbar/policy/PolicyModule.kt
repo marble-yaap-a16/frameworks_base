@@ -504,6 +504,21 @@ interface PolicyModule {
 
         @Provides
         @IntoMap
+        @StringKey(SoundTile.TILE_SPEC)
+        fun provideSoundConfig(uiEventLogger: QsEventLogger): QSTileConfig {
+            return QSTileConfig(
+                tileSpec = TileSpec.create(SoundTile.TILE_SPEC),
+                uiConfig = QSTileUIConfig.Resource(
+                    iconRes = R.drawable.ic_qs_ringer_audible,
+                    labelRes = R.string.quick_settings_sound_label
+                ),
+                instanceId = uiEventLogger.getNewInstanceId(),
+                category = TileCategory.UTILITIES
+            )
+        }
+
+        @Provides
+        @IntoMap
         @StringKey(WifiTile.TILE_SPEC)
         fun provideWifiTileConfig(uiEventLogger: QsEventLogger, context: Context): QSTileConfig {
             return QSTileConfig(
