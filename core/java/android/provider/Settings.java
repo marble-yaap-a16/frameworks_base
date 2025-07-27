@@ -7505,10 +7505,16 @@ public final class Settings {
         public static final String DC_DIM_ENABLED = "dc_dim_enabled";
 
         /**
-          * boolean value. toggles swipe up hint in gestural nav mode
-          * @hide
-          */
-         public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
+         * boolean value. toggles swipe up hint in gestural nav mode
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
+
+        /**
+         * Customizable notification shade blur radius (in dp).
+         * @hide
+         */
+        public static final String SHADE_BLUR_RADIUS = "shade_blur_radius";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
