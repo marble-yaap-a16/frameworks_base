@@ -140,4 +140,10 @@
     <!-- QS DC Dim -->
     <string name="quick_settings_dc_dim">DC Dimming</string>
 
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Sound</string>
+    <string name="quick_settings_sound_ring">Ring</string>
+    <string name="quick_settings_sound_vibrate">Vibrate</string>
+    <string name="quick_settings_sound_mute">Mute</string>
+
 </resources>

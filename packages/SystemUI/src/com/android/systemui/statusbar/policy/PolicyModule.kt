@@ -46,6 +46,7 @@ import com.android.systemui.qs.tiles.ModesDndTile
 import com.android.systemui.qs.tiles.ModesTile
 import com.android.systemui.qs.tiles.PeakRefreshTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.SoundTile
 import com.android.systemui.qs.tiles.UiModeNightTile
 import com.android.systemui.qs.tiles.WifiTile
 import com.android.systemui.qs.tiles.WorkModeTile
@@ -706,6 +707,12 @@ interface PolicyModule {
     @IntoMap
     @StringKey(DcDimTile.TILE_SPEC)
     fun bindDcDimTile(dcDimTile: DcDimTile): QSTileImpl<*>
+
+    /** Inject SoundTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(SoundTile.TILE_SPEC)
+    fun bindSoundTile(soundTile: SoundTile): QSTileImpl<*>
 
     /** Inject WifiTile into tileMap in QSModule */
     @Binds
