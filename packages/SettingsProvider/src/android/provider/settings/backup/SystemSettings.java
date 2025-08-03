@@ -130,7 +130,6 @@ public class SystemSettings {
                 Settings.System.CV_DYNAMIC_ENABLED,
                 Settings.System.CV_PREFERRED_INTENSITY,
                 Settings.System.OMNI_ADVANCED_REBOOT,
-                Settings.System.QS_FOOTER_TEXT_SHOW,
                 Settings.System.LOCKSCREEN_BATTERY_INFO,
                 Settings.System.LOCKSCREEN_CHARGING_TIME,
                 Settings.System.NETWORK_TRAFFIC_STATE,
