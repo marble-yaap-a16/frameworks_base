@@ -2619,7 +2619,7 @@ public class ComputerEngine implements Computer {
             return false;
         }
         // if the target is included in Settings.Secure.HIDE_APPLIST, do filter
-        if (com.android.internal.util.neoteric.HideAppListUtils.shouldHideAppList(
+        if (com.android.internal.util.yaap.HideAppListUtils.shouldHideAppList(
                 mContext, packageName)) {
             return true;
         }
