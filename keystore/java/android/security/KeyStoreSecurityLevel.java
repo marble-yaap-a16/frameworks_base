@@ -35,6 +35,7 @@ import android.system.keystore2.ResponseCode;
 import android.util.Log;
 
 import com.android.internal.util.yaap.KeyboxImitationHooks;
+import com.android.internal.util.yaap.KeyboxUtils;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -149,6 +150,9 @@ public class KeyStoreSecurityLevel {
             throws KeyStoreException {
         StrictMode.noteDiskWrite();
 
+        KeyboxUtils.remove(Binder.getCallingUid(), descriptor.alias);
+
+        int algorithm = -1;
         byte[] attestationChallenge = null;
         for (KeyParameter kp : args) {
             if (kp.tag == Tag.ATTESTATION_CHALLENGE) {
