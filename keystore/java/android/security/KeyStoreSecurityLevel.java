@@ -34,9 +34,6 @@ import android.system.keystore2.KeyMetadata;
 import android.system.keystore2.ResponseCode;
 import android.util.Log;
 
-import com.android.internal.util.yaap.KeyboxImitationHooks;
-import com.android.internal.util.yaap.KeyboxUtils;
-
 import java.util.Calendar;
 import java.util.Collection;
 
@@ -155,15 +152,6 @@ public class KeyStoreSecurityLevel {
             if (kp.tag == Tag.ATTESTATION_CHALLENGE) {
                 attestationChallenge = kp.value.getBlob();
                 break;
-            }
-        }
-
-        KeyboxUtils.remove(Binder.getCallingUid(), descriptor.alias);
-        if (attestationKey == null) {
-            KeyMetadata metadata = KeyboxImitationHooks.generateKey(mSecurityLevel,
-                    descriptor, args);
-            if (metadata != null) {
-                return metadata;
             }
         }
 
