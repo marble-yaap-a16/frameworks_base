@@ -132,7 +132,7 @@ public class InternetTile extends QSTileImpl<QSTile.BooleanState> {
     protected void handleClick(@Nullable Expandable expandable) {
         mHandler.post(() -> mInternetDialogManager.create(true,
                 mAccessPointController.canConfigMobileData(),
-                mAccessPointController.canConfigWifi(), expandable));
+                mAccessPointController.canConfigWifi(), expandable, true, false));
     }
 
     @Override
