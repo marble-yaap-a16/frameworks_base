@@ -2,6 +2,7 @@ package com.android.internal.util.yaap;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 
 import java.util.Arrays;
@@ -25,9 +26,12 @@ public class HideDeveloperStatusUtils {
         SET
     }
 
-    public static boolean shouldHideDevStatus(
-            ContentResolver cr, String packageName, String name) {
-        if (cr == null || packageName == null || name == null) {
+    private static boolean isBootCompleted() {
+        return SystemProperties.getBoolean("sys.boot_completed", false);
+    }
+
+    public static boolean shouldHideDevStatus(ContentResolver cr, String packageName, String name) {
+        if (cr == null || packageName == null || name == null || !isBootCompleted()) {
             return false;
         }
         
@@ -63,8 +67,7 @@ public class HideDeveloperStatusUtils {
     }
 
     private static void putAppsForUser(
-            Context context, String packageName,
-            int userId, Action action) {
+            Context context, String packageName, int userId, Action action) {
         if (context == null || userId < 0) {
             return;
         }
@@ -82,8 +85,11 @@ public class HideDeveloperStatusUtils {
                 break;
         }
 
-        Settings.Secure.putStringForUser(context.getContentResolver(),
-                Settings.Secure.HIDE_DEVELOPER_STATUS, String.join(",", apps), userId);
+        Settings.Secure.putStringForUser(
+                context.getContentResolver(),
+                Settings.Secure.HIDE_DEVELOPER_STATUS,
+                String.join(",", apps),
+                userId);
     }
 
     public void addApp(Context mContext, String packageName, int userId) {
