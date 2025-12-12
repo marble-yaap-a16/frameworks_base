@@ -44,4 +44,16 @@ constructor(private val repository: ScreenCaptureRecordParametersRepository) {
     fun setShouldShowFrontCamera(shouldShowFrontCamera: Boolean) {
         repository.updateParameters { it.copy(shouldShowFrontCamera = shouldShowFrontCamera) }
     }
+
+    fun setLowQuality(lowQuality: Int) {
+        repository.updateParameters { it.copy(lowQuality = lowQuality) }
+    }
+
+    fun setHevc(hevc: Boolean) {
+        repository.updateParameters { it.copy(hevc = hevc) }
+    }
+
+    fun setSkipTime(skipTime: Boolean) {
+        repository.updateParameters { it.copy(skipTime = skipTime) }
+    }
 }
