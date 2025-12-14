@@ -331,9 +331,6 @@ public class InternetTile extends SecureQSTile<QSTile.BooleanState> {
             if (DEBUG) {
                 Log.d(TAG, "setWifiIndicators: " + indicators);
             }
-            if (!indicators.isDefault) {
-                return;
-            }
             synchronized (mWifiInfo) {
                 mWifiInfo.mEnabled = indicators.enabled;
                 mWifiInfo.mSsid = indicators.description;
@@ -359,7 +356,7 @@ public class InternetTile extends SecureQSTile<QSTile.BooleanState> {
             if (DEBUG) {
                 Log.d(TAG, "setMobileDataIndicators: " + indicators);
             }
-            if (indicators.qsIcon == null || !indicators.isDefault) {
+            if (indicators.qsIcon == null) {
                 // Not data sim, don't display.
                 return;
             }
