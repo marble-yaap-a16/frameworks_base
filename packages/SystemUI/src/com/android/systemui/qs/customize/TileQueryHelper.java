@@ -116,6 +116,8 @@ public class TileQueryHelper {
         }
 
         final ArrayList<QSTile> tilesToAdd = new ArrayList<>();
+        possibleTiles.remove("cell");
+        possibleTiles.remove("wifi");
         if (Flags.evenDimmer() && mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_evenDimmerEnabled)) {
             possibleTiles.remove("reduce_brightness");
