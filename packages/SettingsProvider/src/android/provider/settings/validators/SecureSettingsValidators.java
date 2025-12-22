@@ -606,5 +606,6 @@ public class SecureSettingsValidators {
         VALIDATORS.put(Secure.WAKE_ON_CHARGE, new InclusiveIntegerRangeValidator(0, 2));
         VALIDATORS.put(Secure.HIDE_APPLIST, ANY_STRING_VALIDATOR);
         VALIDATORS.put(Secure.HIDE_DEVELOPER_STATUS, ANY_STRING_VALIDATOR);
+        VALIDATORS.put(Secure.SCREENSHOT_SOUNDS, BOOLEAN_VALIDATOR);
     }
 }
