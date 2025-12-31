@@ -238,9 +238,6 @@ constructor(
                     audioSource = ScreenRecordingAudioSource.INTERNAL,
                     displayId = displayId,
                     shouldShowTaps = false,
-                    lowQuality = 0,
-                    hevc = false,
-                    skipTime = false,
                 )
             )
         }

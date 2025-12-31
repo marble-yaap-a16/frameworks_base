@@ -70,21 +70,6 @@ constructor(private val interactor: ScreenCaptureRecordParametersInteractor) :
             }
         }
 
-    val lowQuality: Int? by
-        interactor.parameters
-            .map { it.lowQuality }
-            .hydratedStateOf("ScreenCaptureAudioSourceViewModel#lowQuality", null)
-
-    val hevc: Boolean? by
-        interactor.parameters
-            .map { it.hevc }
-            .hydratedStateOf("ScreenCaptureAudioSourceViewModel#hevc", null)
-
-    val skipTime: Boolean? by
-        interactor.parameters
-            .map { it.skipTime }
-            .hydratedStateOf("ScreenCaptureAudioSourceViewModel#skipTime", null)
-
     var shouldRecordMicrophone: Boolean
         get() =
             audioSource == ScreenRecordingAudioSource.MIC_AND_INTERNAL ||
@@ -119,18 +104,6 @@ constructor(private val interactor: ScreenCaptureRecordParametersInteractor) :
 
     fun setShouldShowFrontCamera(shouldShowFrontCamera: Boolean) {
         interactor.setShouldShowFrontCamera(shouldShowFrontCamera)
-    }
-
-    fun setLowQuality(lowQuality: Int) {
-        interactor.setLowQuality(lowQuality)
-    }
-
-    fun setHevc(hevc: Boolean) {
-        interactor.setHevc(hevc)
-    }
-
-    fun setSkipTime(skipTime: Boolean) {
-        interactor.setSkipTime(skipTime)
     }
 
     @AssistedFactory

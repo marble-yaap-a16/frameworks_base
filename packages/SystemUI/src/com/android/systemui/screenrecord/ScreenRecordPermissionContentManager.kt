@@ -106,8 +106,8 @@ class ScreenRecordPermissionContentManager(
         ): ScreenRecordPermissionContentManager
     }
 
-    private val isHEVCAllowed: Boolean = containerView.context
-        .resources.getBoolean(R.bool.config_screenRecordHEVC)
+    private val isHEVCAllowed: Boolean = userContextProvider
+        .userContext.resources.getBoolean(R.bool.config_screenRecordHEVC)
     private lateinit var tapsSwitch: CompoundButton
     private lateinit var audioSwitch: CompoundButton
     private lateinit var tapsView: View
@@ -224,7 +224,7 @@ class ScreenRecordPermissionContentManager(
             hevcView.visibility = View.GONE
         }
 
-        val userContext = containerView.context
+        val userContext = userContextProvider.userContext
         tapsSwitch.isChecked = Prefs.getInt(userContext, PREF_TAPS, 0) == 1
         lowQualitySpinner.setSelection(Prefs.getInt(userContext, PREF_LOW, 0))
         audioSwitch.isChecked = Prefs.getInt(userContext, PREF_AUDIO, 0) == 1
@@ -299,7 +299,7 @@ class ScreenRecordPermissionContentManager(
     }
 
     public fun savePreferences() {
-        val userContext = containerView.context
+        val userContext = userContextProvider.userContext
         Prefs.putInt(userContext, PREF_TAPS, if (tapsSwitch.isChecked) 1 else 0)
         Prefs.putInt(userContext, PREF_LOW, lowQualitySpinner.selectedItemPosition)
         Prefs.putInt(userContext, PREF_AUDIO, if (audioSwitch.isChecked) 1 else 0)
