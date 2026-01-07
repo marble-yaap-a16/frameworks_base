@@ -35,7 +35,6 @@ import android.system.keystore2.ResponseCode;
 import android.util.Log;
 
 import com.android.internal.util.yaap.KeyboxImitationHooks;
-import com.android.internal.util.yaap.KeyboxUtils;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -158,8 +157,8 @@ public class KeyStoreSecurityLevel {
             }
         }
 
-        KeyboxUtils.remove(Binder.getCallingUid(), descriptor.alias);
-        if (attestationKey == null) {
+        KeyboxImitationHooks.setSuccessFlag(false);
+        if (attestationChallenge != null && attestationKey == null) {
             KeyMetadata metadata = KeyboxImitationHooks.generateKey(mSecurityLevel,
                     descriptor, args);
             if (metadata != null) {
